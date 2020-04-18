@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TRU BLUE - Contact</title>
+       <!-- BOOTSRAP CDN-->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       <!-- BOOTSRAP CDN ENDS HERE -->
+       <!-- FONT AWESOME CDN-->
+       <script src="https://kit.fontawesome.com/e784eaecc7.js" crossorigin="anonymous"></script>
+       <!-- FONT AWESOME CDN ENDS HERE-->
+     <!-- CUSTOM STYLESHEET -->
+     <link rel="stylesheet" href="style.css">
+     <!-- CUSTOM STYLESHEET ENDS HERE-->
+  </head>
+  <body>
+    <!--    
+
+    Part 2: Contact Us Page
+
+    Requirements:
+
+    1. Use the same header/footer, colours, fonts, etc. as your index.html page.
+    It should be obvious to the user they they are still on the same site, and that
+    contact.html is part of your store.
+
+    2. Include an HTML Form for the user to fill out his or her information along
+    with their message to you. Your form should including the following, and all
+    fields should be mandatory unless otherwise noted, and use the most appropriate <input> type:
+    
+        - First Name
+        - Last Name
+        - Email Address
+        - Address
+        - City (use a <datalist> for autocomplete of common Canadian cities)
+        - Phone Number (must be a valid Canadian Phone Number, use regex)
+        - Postal Code (must be a valid Canadian Postal Code, use regex)
+        - Checkbox Option to be phoned ("Would you like to be phoned?")
+        - Radio Options to specify what this is about: one of "Question",
+          "Comment", or "Order Problem". If the user selects "Order Problem",
+          dynamically reveal another input box to enter the order number. In the
+          case of "Comment" or "Question" hide this input box.
+        - A large area to enter the message that they want to send
+        - A hidden input field with your name
+
+    3. The form should submit to https://httpbin.org/post using the POST method,
+    and only allow the user to submit when all data has been entered and there
+    aren't any validation errors.  The data posted to httpbin.org should include
+    all data defined in the form above (e.g., visible and hidden fields).
+
+  -->
+ <!-- HEADER -->
+ <header>
+      
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-12">
+        <div class="btn-group">
+          <button class="btn border dropdown-toggle my-md-4 my-2 text-white" 
+          data-toggle="dropdown" 
+          aria-haspopup="true" 
+          aria-expanded="false"
+          >USD</button>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">EUR-Euro</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-12 text-center">
+        <h2 class="my-md-3 site-title text-white">TRU BLUE</h2>
+      </div>
+      <div class="col-md-4 col-12 text-right">
+        <p class="my-md-4 header-links">
+          <a href="index.html" class="px-2">HOME</a>
+          <a href="#" class="px-2">Sign In</a>
+          <a href="#" class="px-1">Create an Account</a>
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">HOME <span class="sr-only">(current)</span></a>
+          </li>
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              SHOP
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Richar Millie</a>
+              <a class="dropdown-item" href="#">Audemars Piguet</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-nav">
+       <form>
+         <div class="input-group">
+           <input type="text"  class="form-control" placeholder="Looking for something?" name="Search">
+           <div class="input-group-btn">
+            <button type="submit" class="btn btn-big">
+              search
+             </button>
+           </div>
+         </div>
+       </form>
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- HEADER ENDS HERE --> 
+
+<h1 class="store-header"> HOME OF THE EXOTIC WATCHES </h1>
+<!-- FORM -->
+<div class="container-xl">
+  <div class="form">
+      <form action="https://httpbin.org/post" method="POST">
+        <p>
+          <ul> 
+            <p>Due to the nature of this business, all items come in limited quantities and therefore any inquiries on availability must be directly requested through this form.</p>
+            <li>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" placeholder="Enter your first name..." name="f_name" required>
+            </li>
+            <li>
+              <label for="last_name">Last Name:</label>
+              <input type="text" id="last_name" placeholder="Enter your last name..." name="l_name" required>
+            </li>
+            <li>
+                <label for="mail">Email:</label>
+                <input type="email" id="mail" name="user_mail" placeholder="example@website.ca" required>
+            </li>
+            <li>
+              <label for="city">City:</label>
+              <input list="cities" name="city" placeholder="Enter your city..." required>
+                <datalist id="cities">
+                  <select name="city" id="city">
+                    <option value="Toronto">
+                    <option value="Winnipeg">
+                    <option value="Quebec">
+                    <option value="Montreal">
+                    <option value="Edmonton">
+                    <option value="Saskatoon">
+                    <option value="Vancouver">
+                    <option value="Yellow Knife">
+                    <option value="Halifax">
+                  </select>
+                </datalist>
+            </li>
+            <li>
+              <label for="province">Province:</label>
+                <select name="province" id="province" required>
+                  <option value="AB">Alberta</option>
+                  <option value="BC">British Columbia</option>
+                  <option value="MB">Manitoba</option>
+                  <option value="NB">New Brunswick</option>
+                  <option value="NL">Newfoundland and Labrador</option>
+                  <option value="NS">Nova Scotia</option>
+                  <option value="ON">Ontario</option>
+                  <option value="PE">Prince Edward Island</option>
+                  <option value="QC">Quebec</option>
+                  <option value="SK">Saskatchewan</option>
+                  <option value="NT">Northwest Territories</option>
+                  <option value="NU">Nunavut</option>
+                  <option value="YT">Yukon</option>
+                </select>			
+            </li>
+            <li>
+                <label for="number">Phone Number:</label>
+                <input type="text" id="number" name="business_number" placeholder="Enter your phone number..." pattern="[(-.]?\d\d\d[)-. ]?[- ]?\d\d\d[-. ]?\d\d\d\d" required>
+            </li>
+            <li>
+              <input type="checkbox" name="yestophone" id="yestophone" required>
+              <label for="yestophone" name="yestophone" id="yestophone">Would you like to be phoned?</label>
+            </li>
+            <li>
+                <label for="msg">Message:</label><br>
+                <textarea name="user_message" id="msg" cols="30" rows="10" placeholder="Enter your message here." required></textarea>
+            </li>
+            <li>
+              <label for="type">Type of Request</label><br>
+              
+              <input type="radio" name="product inquiry" value="product inquiry">
+              <label for="product inquiry">Product Inquiry</label>
+              <input type="radio" name="business" value="business">
+              <label for="business">Business Inquiry</label>
+              <input type="radio" name="service" value="service">
+              <label for="service">Customer Service</label>
+              <input type="radio" name="problem" value="problem">
+              <label for="problem">Order Problem</label>
+              <input type="radio" name="comment" value="comment">
+              <label for="comment">Comment</label>
+          </li>
+          
+            <div id="button">
+              <button type="submit">Submit</button>
+              
+            </div>
+            <li   disabled>
+              <label for="Charles Mayombo" name="Charles Mayombo" disabled></label>
+            </li>
+        </ul>
+        </p>
+      </form>
+  </div>
+</div>
+<!-- FORM ENDS HERE -->
+
+
+     <!-- NEW FOOTER -->
+     <footer>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 segment-one md-mb-30 sm-mb-30">
+              <h3 class="footerh3">TRU BLUE</h3>
+              <p class="footerp">
+               We are highly dedicated exotic watch sellers,
+               Bringing you the best of the best for a fairly even price.
+             </p>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 segment-two md-mb-30 sm-mb-30">
+             <h3 class="footerh3">USEFUL LINKS</h3>
+             <ul>
+               <li><a href="#">Order Status</a></li>
+               <li><a href="#">Shipping and Delivery</a></li>
+               <li><a href="#">Payment Options</a></li>
+               <li><a href="contact.html">Contact Us</a></li>
+             </ul>
+           </div>
+           <div class="col-md-3 col-sm-6 col-xs-12 segment-three  sm-mb-30">
+             <h2 class="footerh2">Follow Us</h2>
+             <p class="footerp">Don't miss our daily posts</p>
+             <a href="#"><i class="fa fa-facebook"></i></a>
+             <a href="#"><i class="fa fa-twitter"></i></a>
+             <a href="#"><i class="fa fa-linkedin"></i></a>
+             <a href="#"><i class="fa fa-pinterest"></i></a>
+           </div>
+           <div class="col-md-3 col-sm-6 col-xs-12 segment-four sm-mb-30">
+             <h2 class="footerh2">OUR NEWSLETER</h2>
+             <p class="footerp">Subscribe to receive exclusive content and notifications</p>
+             <form action="https://formspree.io/xlewopar">
+               <input type="email" name="email" class="text-input contact-input" placeholder="Email....">
+               <!-- <input type="submit" value="Subscribe"> -->
+               <button type="submit" class="btn btn-big">
+            
+                 SUBSCRIBE
+                </button>
+             </form>
+           </div>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom-text">All Rights reserved by &copy; 2020 TRU BLUE</p>
+    </footer>
+      <!-- NEW  FOOTER ENDS HERE -->
+
+<!--BOOTSRAP CDN JS-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+<!-- BOOTSRAP CDN JS ENDS HERE-->
+<script src="script.js"></script>
+</body>
+</html>
